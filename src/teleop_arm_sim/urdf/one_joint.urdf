@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot name="one_joint_arm">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.2 0.2 0.05"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="finger_joint0" type="revolute">
+    <parent link="base_link"/>
+    <child link="finger_base"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.1" upper="0.1" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="finger_base" />
+
+  <joint name="finger_joint1" type="revolute">
+    <parent link="finger_base"/>
+    <child link="finger_seg1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.2" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="finger_seg1">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+</robot>
