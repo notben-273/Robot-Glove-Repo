@@ -1,5 +1,10 @@
 # Robot-Glove-Repo
 # Set-up
+I have not tested the nuances of transfering code to a different computer and setting it up, but the source file working on my computer is in this repository and can be built with
+```
+colcon build
+```
+---
 Use this in a terminal to make sure you have ID 93
 ```
 echo $ROS_DOMAIN_ID
