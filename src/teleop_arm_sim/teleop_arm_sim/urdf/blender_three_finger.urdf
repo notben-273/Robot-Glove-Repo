@@ -1,0 +1,145 @@
+<robot name="three_finger_gripper" version="1.0">
+  <joint name="index_joint1" type="revolute">
+    <limit lower="0.00000" upper="-1.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 -3.14159" xyz="-1.58377 1.10000 0.50091"/>
+    <parent link="base_link"/>
+    <child link="index_seg1_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="index_joint2" type="revolute">
+    <limit lower="-1.40000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.15220 0.00000 2.00000"/>
+    <parent link="index_seg1_link"/>
+    <child link="index_seg2_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="index_joint3" type="revolute">
+    <limit lower="-1.40000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.11560 0.00000 1.20000"/>
+    <parent link="index_seg2_link"/>
+    <child link="index_seg3_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="middle_joint1" type="revolute">
+    <limit lower="0.00000" upper="-1.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 -3.14159" xyz="-1.58377 -1.10000 0.50091"/>
+    <parent link="base_link"/>
+    <child link="middle_seg1_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="middle_joint2" type="revolute">
+    <limit lower="-1.40000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.15220 0.00000 2.00000"/>
+    <parent link="middle_seg1_link"/>
+    <child link="middle_seg2_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="middle_joint3" type="revolute">
+    <limit lower="-1.40000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.11560 0.00000 1.20000"/>
+    <parent link="middle_seg2_link"/>
+    <child link="middle_seg3_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="thumb_joint1" type="revolute">
+    <limit lower="0.00000" upper="-1.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="1.57623 0.00000 0.50091"/>
+    <parent link="base_link"/>
+    <child link="thumb_seg1_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="thumb_joint2" type="revolute">
+    <limit lower="-1.40000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.15644 -0.00247 2.01974"/>
+    <parent link="thumb_seg1_link"/>
+    <child link="thumb_seg2_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="thumb_joint3" type="revolute">
+    <limit lower="-1.40000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.11560 0.00247 1.20000"/>
+    <parent link="thumb_seg2_link"/>
+    <child link="thumb_seg3_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <link name="base_link">
+    <visual name="base">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="3.80450 3.90469 1.72374"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="index_seg1_link">
+    <visual name="index_seg1">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 0.00000 1.00000"/>
+      <geometry>
+        <box size="1.00000 1.00000 2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="index_seg2_link">
+    <visual name="index_seg2">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 0.00000 0.60000"/>
+      <geometry>
+        <box size="0.69560 0.90000 1.20000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="index_seg3_link">
+    <visual name="index_seg3">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 0.00000 0.45981"/>
+      <geometry>
+        <box size="0.46441 0.80000 0.91963"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="middle_seg1_link">
+    <visual name="middle_seg1">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 -0.00000 1.00000"/>
+      <geometry>
+        <box size="1.00000 1.00000 2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="middle_seg2_link">
+    <visual name="middle_seg2">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 0.00000 0.60000"/>
+      <geometry>
+        <box size="0.69560 0.90000 1.20000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="middle_seg3_link">
+    <visual name="middle_seg3">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 -0.00000 0.45981"/>
+      <geometry>
+        <box size="0.46441 0.80000 0.91963"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thumb_seg1_link">
+    <visual name="thumb_seg1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.00000"/>
+      <geometry>
+        <box size="1.00000 1.00000 2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thumb_seg2_link">
+    <visual name="thumb_seg2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00247 0.60000"/>
+      <geometry>
+        <box size="0.69560 0.90000 1.20000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thumb_seg3_link">
+    <visual name="thumb_seg3">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.45981"/>
+      <geometry>
+        <box size="0.46441 0.80000 0.91963"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

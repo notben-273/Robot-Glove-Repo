@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="three_finger_arm">
+
+  <!-- Pointer lengths -->
+  <xacro:property name="pointer_l1" value="0.05"/>
+  <xacro:property name="pointer_l2" value="0.03"/>
+  <xacro:property name="pointer_l3" value="0.02"/>
+
+  <xacro:property name="pointer_p1" value="0"/>
+  <xacro:property name="pointer_p2" value="0.05"/>
+  <xacro:property name="pointer_p3" value="0"/>
+
+  <!-- Middle lengths -->
+  <xacro:property name="middle_l1" value="0.05"/>
+  <xacro:property name="middle_l2" value="0.03"/>
+  <xacro:property name="middle_l3" value="0.02"/>
+
+  <xacro:property name="middle_p1" value="0"/>
+  <xacro:property name="middle_p2" value="0"/>
+  <xacro:property name="middle_p3" value="0"/>
+
+  <!-- Thumb lengths -->
+  <xacro:property name="thumb_l1" value="0.05"/>
+  <xacro:property name="thumb_l2" value="0.03"/>
+  <xacro:property name="thumb_l3" value="0.02"/>
+
+  <xacro:property name="thumb_p1" value="0.1"/>
+  <xacro:property name="thumb_p2" value="0.025"/>
+  <xacro:property name="thumb_p3" value="0"/>
+
+
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.125 0.08 0.01"/>
+      </geometry>
+      <origin xyz="0.05 0.025 0" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+
+<!-- THUMB -->
+  <joint name="thumb_joint0" type="revolute">
+    <parent link="base_link"/>
+    <child link="thumb_base"/>
+    <origin xyz="${thumb_p1} ${thumb_p2} ${thumb_p3}" rpy="0 0 3.14"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.1" upper="0.1" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="thumb_base" />
+
+  <joint name="thumb_joint1" type="revolute">
+    <parent link="thumb_base"/>
+    <child link="thumb_seg1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.2" upper="1" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="thumb_seg1">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${thumb_l1}"/>
+      </geometry>
+      <origin xyz="0 0 ${thumb_l1/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="thumb_joint2" type="revolute">
+    <parent link="thumb_seg1"/>
+    <child link="thumb_seg2"/>
+    <origin xyz="0 0 ${thumb_l1}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="thumb_seg2">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${thumb_l2}"/>
+      </geometry>
+      <origin xyz="0 0 ${thumb_l2/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="thumb_joint3" type="revolute">
+    <parent link="thumb_seg2"/>
+    <child link="thumb_seg3"/>
+    <origin xyz="0 0 ${thumb_l2}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="thumb_seg3">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${thumb_l3}"/>
+      </geometry>
+      <origin xyz="0 0 ${thumb_l3/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+
+<!-- POINTER FINGER -->
+  <joint name="pointer_joint0" type="revolute">
+    <parent link="base_link"/>
+    <child link="pointer_base"/>
+    <origin xyz="${pointer_p1} ${pointer_p2} ${pointer_p3}" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.1" upper="0.1" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="pointer_base" />
+
+  <joint name="pointer_joint1" type="revolute">
+    <parent link="pointer_base"/>
+    <child link="pointer_seg1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.2" upper="1" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="pointer_seg1">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${pointer_l1}"/>
+      </geometry>
+      <origin xyz="0 0 ${pointer_l1/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="pointer_joint2" type="revolute">
+    <parent link="pointer_seg1"/>
+    <child link="pointer_seg2"/>
+    <origin xyz="0 0 ${pointer_l1}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="pointer_seg2">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${pointer_l2}"/>
+      </geometry>
+      <origin xyz="0 0 ${pointer_l2/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="pointer_joint3" type="revolute">
+    <parent link="pointer_seg2"/>
+    <child link="pointer_seg3"/>
+    <origin xyz="0 0 ${pointer_l2}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="pointer_seg3">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${pointer_l3}"/>
+      </geometry>
+      <origin xyz="0 0 ${pointer_l3/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+  <!-- MIDDLE FINGER -->
+  <joint name="middle_joint0" type="revolute">
+    <parent link="base_link"/>
+    <child link="middle_base"/>
+    <origin xyz="${middle_p1} ${middle_p2} ${middle_p3}" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.1" upper="0.1" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="middle_base" />
+
+  <joint name="middle_joint1" type="revolute">
+    <parent link="middle_base"/>
+    <child link="middle_seg1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.2" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="middle_seg1">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${middle_l1}"/>
+      </geometry>
+      <origin xyz="0 0 ${middle_l1/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="middle_joint2" type="revolute">
+    <parent link="middle_seg1"/>
+    <child link="middle_seg2"/>
+    <origin xyz="0 0 ${middle_l1}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="middle_seg2">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${middle_l2}"/>
+      </geometry>
+      <origin xyz="0 0 ${middle_l2/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="middle_joint3" type="revolute">
+    <parent link="middle_seg2"/>
+    <child link="middle_seg3"/>
+    <origin xyz="0 0 ${middle_l2}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="middle_seg3">
+    <visual>
+      <geometry>
+        <box size="0.015 0.015 ${middle_l3}"/>
+      </geometry>
+      <origin xyz="0 0 ${middle_l3/2}" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+</robot>

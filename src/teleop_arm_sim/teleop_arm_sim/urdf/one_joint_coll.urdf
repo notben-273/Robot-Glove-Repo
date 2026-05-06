@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<robot name="one_joint_arm">
+
+  <!-- ── Base ────────────────────────────────────────────────────────────── -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.2 0.2 0.05"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.2 0.2 0.05"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+  </link>
+
+  <!-- ── Joint 0 (side-to-side spread) ───────────────────────────────────── -->
+  <joint name="finger_joint0" type="revolute">
+    <parent link="base_link"/>
+    <child link="finger_base"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.1" upper="0.1" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="finger_base"/>
+
+  <!-- ── Joint 1 (finger bend) ───────────────────────────────────────────── -->
+  <joint name="finger_joint1" type="revolute">
+    <parent link="finger_base"/>
+    <child link="finger_seg1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.2" upper="1.5" effort="1" velocity="1"/>
+  </joint>
+
+  <link name="finger_seg1">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <!-- Full box collider matching visual exactly -->
+    <collision>
+      <geometry>
+        <box size="0.05 0.05 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+    </collision>
+  </link>
+
+  <!-- ── Fingertip frame (invisible, at top of finger for tracking) ───────── -->
+  <joint name="fingertip_joint" type="fixed">
+    <parent link="finger_seg1"/>
+    <child link="fingertip"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+  </joint>
+
+  <link name="fingertip"/>
+
+  <!-- ── Static collision target object ──────────────────────────────────── -->
+  <joint name="target_box_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="target_box"/>
+    <origin xyz="0.25 0 0.1" rpy="0 0 0"/>
+  </joint>
+
+  <link name="target_box">
+    <visual>
+      <geometry>
+        <box size="0.08 0.08 0.08"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="target_red">
+        <color rgba="1 0.2 0.2 0.6"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.08 0.08 0.08"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+  </link>
+
+</robot>

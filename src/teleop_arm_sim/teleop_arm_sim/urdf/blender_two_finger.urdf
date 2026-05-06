@@ -1,0 +1,97 @@
+<robot name="two_finger_gripper" version="1.0">
+  <joint name="finger1_pad_link_joint" type="fixed">
+    <origin rpy="0.52349 0.01134 -0.01965" xyz="-0.00000 -1.53205 -0.38231"/>
+    <parent link="finger1_seg2_link"/>
+    <child link="finger1_pad_link"/>
+  </joint>
+  <joint name="finger1_seg2_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -2.00000 5.50000"/>
+    <parent link="finger1_seg1_link"/>
+    <child link="finger1_seg2_link"/>
+  </joint>
+  <joint name="finger2_pad_link_joint" type="fixed">
+    <origin rpy="0.52360 -0.00000 0.00000" xyz="-0.00000 -1.53205 -0.38231"/>
+    <parent link="finger2_seg2_link"/>
+    <child link="finger2_pad_link"/>
+  </joint>
+  <joint name="finger2_seg2_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 -2.00000 5.50000"/>
+    <parent link="finger2_seg1_link"/>
+    <child link="finger2_seg2_link"/>
+  </joint>
+  <joint name="finger_joint1" type="revolute">
+    <limit lower="-1.00000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="-0.52360 0.00000 0.00000" xyz="0.00000 1.25000 0.80192"/>
+    <parent link="Base_link"/>
+    <child link="finger1_seg1_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="finger_joint2" type="revolute">
+    <limit lower="-1.00000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="-0.52360 -0.00000 -3.14159" xyz="-0.00000 -1.00000 0.80192"/>
+    <parent link="Base_link"/>
+    <child link="finger2_seg1_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+    <mimic joint="finger_joint1" multiplier="1.0" offset="0.0"/>
+  </joint>
+  <link name="Base_link">
+    <visual name="Base">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <material name="Material"/>
+      <geometry>
+        <box size="3.00000 5.00000 2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="finger1_pad_link">
+    <visual name="finger1_pad">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="1.57349 1.00000 2.01983"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="finger1_seg1_link">
+    <visual name="finger1_seg1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 3.00000"/>
+      <geometry>
+        <box size="1.00000 1.00000 6.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="finger1_seg2_link">
+    <visual name="finger1_seg2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+      <geometry>
+        <box size="1.00000 3.00000 1.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="finger2_pad_link">
+    <visual name="finger2_pad">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="1.57349 1.00000 2.01983"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="finger2_seg1_link">
+    <visual name="finger2_seg1">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 -0.00000 3.00000"/>
+      <geometry>
+        <box size="1.00000 1.00000 6.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="finger2_seg2_link">
+    <visual name="finger2_seg2">
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 0.00000 -0.00000"/>
+      <geometry>
+        <box size="1.00000 3.00000 1.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <material name="Material">
+    <color rgba="0.80000 0.80000 0.80000 1.00000"/>
+  </material>
+</robot>

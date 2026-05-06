@@ -1,0 +1,290 @@
+<robot name="five_finger" version="1.0">
+  <joint name="middle_joint0" type="revolute">
+    <limit lower="-0.50000" upper="0.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.50964 -0.01321 5.62537"/>
+    <parent link="palm_base_link"/>
+    <child link="middle_seg1_link.001"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="middle_joint1" type="revolute">
+    <limit lower="-3.14000" upper="0.15000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+    <parent link="middle_seg1_link.001"/>
+    <child link="middle_seg1_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="middle_joint2" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 3.40000"/>
+    <parent link="middle_seg1_link"/>
+    <child link="middle_seg2_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="middle_joint3" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 2.20000"/>
+    <parent link="middle_seg2_link"/>
+    <child link="middle_seg3_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="pinky_joint0" type="revolute">
+    <limit lower="-0.50000" upper="0.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="2.69674 -0.01321 4.62120"/>
+    <parent link="palm_base_link"/>
+    <child link="pinky_seg1_link.001"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="pinky_joint1" type="revolute">
+    <limit lower="-1.65000" upper="0.15000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+    <parent link="pinky_seg1_link.001"/>
+    <child link="pinky_seg1_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="pinky_joint2" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.02320 2.40000"/>
+    <parent link="pinky_seg1_link"/>
+    <child link="pinky_seg2_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="pinky_joint3" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.40000"/>
+    <parent link="pinky_seg2_link"/>
+    <child link="pinky_seg3_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="pointer_joint0" type="revolute">
+    <limit lower="-0.50000" upper="0.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-2.22704 -0.01321 5.49739"/>
+    <parent link="palm_base_link"/>
+    <child link="index_seg1_link.001"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="pointer_joint1" type="revolute">
+    <limit lower="-1.65000" upper="0.15000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+    <parent link="index_seg1_link.001"/>
+    <child link="index_seg1_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="pointer_joint2" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 3.20000"/>
+    <parent link="index_seg1_link"/>
+    <child link="index_seg2_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="pointer_joint3" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.80000"/>
+    <parent link="index_seg2_link"/>
+    <child link="index_seg3_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="ring_joint0" type="revolute">
+    <limit lower="-0.50000" upper="0.15000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="1.20326 -0.01321 5.49739"/>
+    <parent link="palm_base_link"/>
+    <child link="ring_seg1_link.001"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="ring_joint1" type="revolute">
+    <limit lower="-1.65000" upper="3.14000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+    <parent link="ring_seg1_link.001"/>
+    <child link="ring_seg1_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="ring_joint2" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 3.20000"/>
+    <parent link="ring_seg1_link"/>
+    <child link="ring_seg2_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="ring_joint3" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.80000"/>
+    <parent link="ring_seg2_link"/>
+    <child link="ring_seg3_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="thumb_joint0" type="revolute">
+    <limit lower="-0.50000" upper="0.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 -0.52360 0.00000" xyz="-2.28429 -0.03818 1.51834"/>
+    <parent link="palm_base_link"/>
+    <child link="thumb_seg1_link.001"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="thumb_joint1" type="revolute">
+    <limit lower="-1.65000" upper="0.15000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+    <parent link="thumb_seg1_link.001"/>
+    <child link="thumb_seg1_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="thumb_joint2" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 2.80000"/>
+    <parent link="thumb_seg1_link"/>
+    <child link="thumb_seg1.001_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="thumb_joint3" type="revolute">
+    <limit lower="-1.65000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 2.00000"/>
+    <parent link="thumb_seg1.001_link"/>
+    <child link="thumb_seg1.002_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="wrist_joint" type="revolute">
+    <limit lower="-2.00000" upper="1.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.74339"/>
+    <parent link="wrist_base_link"/>
+    <child link="palm_base_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <link name="index_seg1_link">
+    <visual name="index_seg1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.60000"/>
+      <geometry>
+        <box size="1.40000 1.40000 3.20000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="index_seg1_link.001"/>
+  <link name="index_seg2_link">
+    <visual name="index_seg2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.90000"/>
+      <geometry>
+        <box size="1.30000 1.30000 1.80000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="index_seg3_link">
+    <visual name="index_seg3">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.90000"/>
+      <geometry>
+        <box size="1.20000 1.20000 1.80000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="middle_seg1_link">
+    <visual name="middle_seg1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.70000"/>
+      <geometry>
+        <box size="1.40000 1.40000 3.40000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="middle_seg1_link.001"/>
+  <link name="middle_seg2_link">
+    <visual name="middle_seg2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.10000"/>
+      <geometry>
+        <box size="1.30000 1.30000 2.20000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="middle_seg3_link">
+    <visual name="middle_seg3">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.00000"/>
+      <geometry>
+        <box size="1.20000 1.20000 2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="palm_base_link">
+    <visual name="palm_base">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 2.89655"/>
+      <geometry>
+        <box size="5.86501 2.20000 5.79309"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pinky_seg1_link">
+    <visual name="pinky_seg1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.20000"/>
+      <geometry>
+        <box size="1.20000 1.20000 2.40000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pinky_seg1_link.001"/>
+  <link name="pinky_seg2_link">
+    <visual name="pinky_seg2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.02320 0.70000"/>
+      <geometry>
+        <box size="1.10000 1.10000 1.40000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pinky_seg3_link">
+    <visual name="pinky_seg3">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.02320 0.70000"/>
+      <geometry>
+        <box size="1.00000 1.00000 1.40000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ring_seg1_link">
+    <visual name="ring_seg1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.60000"/>
+      <geometry>
+        <box size="1.40000 1.40000 3.20000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ring_seg1_link.001"/>
+  <link name="ring_seg2_link">
+    <visual name="ring_seg2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.90000"/>
+      <geometry>
+        <box size="1.30000 1.30000 1.80000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="ring_seg3_link">
+    <visual name="ring_seg3">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.90000"/>
+      <geometry>
+        <box size="1.20000 1.20000 1.80000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thumb_seg1.001_link">
+    <visual name="thumb_seg1.001">
+      <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.02497 1.00000"/>
+      <geometry>
+        <box size="1.30000 1.30000 2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thumb_seg1.002_link">
+    <visual name="thumb_seg1.002">
+      <origin rpy="-0.00000 0.00000 -0.00000" xyz="0.00000 0.02497 0.80000"/>
+      <geometry>
+        <box size="1.20000 1.20000 1.60000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thumb_seg1_link">
+    <visual name="thumb_seg1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.02497 1.40000"/>
+      <geometry>
+        <box size="1.40000 1.40000 2.80000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="thumb_seg1_link.001"/>
+  <link name="wrist_base_link">
+    <visual name="wrist_base">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="3.60000 2.00000 3.65309"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

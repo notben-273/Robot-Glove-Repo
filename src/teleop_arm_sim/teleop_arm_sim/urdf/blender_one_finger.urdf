@@ -1,0 +1,70 @@
+<robot name="one_finger" version="1.0">
+  <joint name="pointer_joint0" type="revolute">
+    <limit lower="-0.10000" upper="0.10000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+    <parent link="base_link"/>
+    <child link="pointer_seg0"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="pointer_joint1" type="revolute">
+    <limit lower="-0.20000" upper="1.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+    <parent link="pointer_seg0"/>
+    <child link="pointer_seg1"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="pointer_joint2" type="revolute">
+    <limit lower="0.00000" upper="1.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 4.10000"/>
+    <parent link="pointer_seg1"/>
+    <child link="pointer_seg2"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="pointer_joint3" type="revolute">
+    <limit lower="0.00000" upper="1.50000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 3.10000"/>
+    <parent link="pointer_seg2"/>
+    <child link="pointer_seg3"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <link name="base_link">
+    <visual name="Base">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="2.00000 2.00000 0.50000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pointer_seg0">
+    <visual name="Finger_Index_0">
+      <origin rpy="-1.57080 0.00000 -1.57080" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <sphere radius="0.90000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pointer_seg1">
+    <visual name="Finger_Index_1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 2.00000"/>
+      <geometry>
+        <box size="1.00000 1.00000 4.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pointer_seg2">
+    <visual name="Finger_Index_2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.50000"/>
+      <geometry>
+        <box size="1.00000 1.00000 3.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pointer_seg3">
+    <visual name="Finger_Index_3">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 1.00000"/>
+      <geometry>
+        <box size="1.00000 1.00000 2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
